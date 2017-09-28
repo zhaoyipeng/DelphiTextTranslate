@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5DBC0BF5-0219-42AB-AC37-25E8FCB61933}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Pascal2CT\Pascal2CT.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="StrippedTool\StripedTool.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Pascal2CT">
+        <MSBuild Projects="Pascal2CT\Pascal2CT.dproj"/>
+    </Target>
+    <Target Name="Pascal2CT:Clean">
+        <MSBuild Projects="Pascal2CT\Pascal2CT.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Pascal2CT:Make">
+        <MSBuild Projects="Pascal2CT\Pascal2CT.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="StripedTool">
+        <MSBuild Projects="StrippedTool\StripedTool.dproj"/>
+    </Target>
+    <Target Name="StripedTool:Clean">
+        <MSBuild Projects="StrippedTool\StripedTool.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StripedTool:Make">
+        <MSBuild Projects="StrippedTool\StripedTool.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Pascal2CT;StripedTool"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Pascal2CT:Clean;StripedTool:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Pascal2CT:Make;StripedTool:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
