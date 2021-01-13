@@ -10,3 +10,9 @@ This project original author is 细雨纷飞, qq:600585, re-organized and open s
 first release<br>
 
 
+
+# Site Links
+	
+## [learndelphi](//learndelphi.org)
+
+## [embarcadero](//embarcadero.com)
